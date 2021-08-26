@@ -344,7 +344,13 @@
                 let current_sec = time.getSeconds();
                 let current_min = time.getMinutes();
                 let current_hours = time.getHours();
-                sec.style.transform = `rotate(${degFunction(current_sec, 60)}deg)`;
+
+                if (current_sec == 60) {
+                    sec.style.transform = "rotate(-360deg)";
+                } else {
+                    sec.style.transform = `rotate(${degFunction(current_sec, 60)}deg)`;
+                }
+
                 min.style.transform = `rotate(${degFunction(current_min, 60)}deg)`;
                 hour.style.transform = `rotate(${degFunction(current_hours, 12)}deg)`;
                 let hours_cur;
